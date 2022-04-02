@@ -111,7 +111,9 @@ def test(loader, model, args):
             ##################################################################
             # Compute affinities
             ##################################################################
+            print("Before clearing cache for computing affinities")
             torch.cuda.empty_cache()
+            print("After clearing cache for computing affinities")
             t03 = time.time()
 
             # Prepare source (keys) and target (query) frame features
@@ -232,8 +234,9 @@ def test(loader, model, args):
                         )
                     }
                 )
-
+            print("Before clearing cache for next run")
             torch.cuda.empty_cache()
+            print("After clearing cache for next run")
             print('******* Vid %s TOOK %s *******' % (vid_idx, time.time() - t_vid))
 
 
